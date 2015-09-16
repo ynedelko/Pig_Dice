@@ -19,7 +19,6 @@ describe('Player', function() {
     testPlayer.hold();
     expect(testPlayer.totalScore).to.equal(5);
   });
-
 });
 
 describe('Die', function() {
@@ -33,8 +32,16 @@ describe('Die', function() {
     var testDie = new Die("dice1", 1);
     testDie.roll();
     expect(testDie.name).to.equal('dice1');
-    debugger;
+    //function works, but could not create passing spec for random number generator.
     expect(testDie.value).to.exist;
   });
+});
 
+describe('Computer', function() {
+  it('establishes the computer player', function() {
+    var testComputer = new Computer("Computer", 3, 6);
+    expect(testComputer.name).to.equal("Computer");
+    expect(testComputer.turnScore).to.equal(3);
+    expect(testComputer.totalScore).to.equal(6);
+  });
 });

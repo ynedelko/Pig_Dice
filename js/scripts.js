@@ -22,3 +22,15 @@ function Die(name, value) {
 Die.prototype.roll = function() {
   return this.value = Math.floor(Math.random() * (7 - 1)) + 1;
 };
+
+function Computer(name, turnScore, totalScore) {
+  this.name = name;
+  this.turnScore = turnScore;
+  this.totalScore = totalScore;
+};
+
+$(document).ready(function() {
+
+
+
+});
