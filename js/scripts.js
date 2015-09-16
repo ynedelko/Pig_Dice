@@ -66,6 +66,22 @@ $(document).ready(function() {
       }
     });
 
+    $("#player2roll").off();
+    $("#player2roll").click(function() {
+      die1.roll();
+
+      if (die1.value === 1) {
+        alert("Sucks to be you. Turn over. You get nothing. Player 1's turn.");
+        Player2.turnScore = 0;
+        $("#player2turn").text(Player2.turnScore);
+      } else {
+        Player2.addScore(die1);
+        $("#player2turn").text(Player2.turnScore);
+        alert("Roll again.");
+
+      }
+    });
+
   });
 
 });
