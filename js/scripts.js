@@ -40,8 +40,11 @@ $(document).ready(function() {
 
     $(".player1").text(newPlayer1.name);
     $(".player2").text(newPlayer2.name);
-    
-  });
+    $("#player1score").text(newPlayer1.totalScore);
+    $("#player1turn").text(newPlayer1.turnScore);
+    $("#player2score").text(newPlayer2.totalScore);
+    $("#player2turn").text(newPlayer2.turnScore);
 
+  });
 
 });
