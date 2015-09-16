@@ -104,14 +104,47 @@ $(document).ready(function() {
           Player1.totalScore = 0;
           $("#player1score").text(Player1.totalScore);
           $("#player1turn").text(Player1.turnScore);
-
-          // delete Player1;
-          // delete Player2;
           $(".player1").text("Player 1");
           $(".player2").text("Player 2");
+          $("#player1roll").hide();
+          $("#player2roll").hide();
+          $("#player1hold").hide();
+          $("#player2hold").hide();
         }
       }
     });
+
+    $("#player2hold").off();
+    $("#player2hold").click(function() {
+      Player2.hold();
+      if (Player2.totalScore >= 10) {
+        alert(Player2.name + " Has Won!")
+        if (window.confirm("Play again?")) {
+          Player2.turnScore = 0;
+          Player2.totalScore = 0;
+          $("#player2score").text(Player2.totalScore);
+          $("#player2turn").text(Player2.turnScore);
+          Player1.turnScore = 0;
+          Player1.totalScore = 0;
+          $("#player1score").text(Player1.totalScore);
+          $("#player1turn").text(Player1.turnScore);
+
+        } else {
+          Player2.turnScore = 0;
+          Player2.totalScore = 0;
+          $("#player2score").text(Player2.totalScore);
+          $("#player2turn").text(Player2.turnScore);
+          $(".player2").text("Player 2");
+          $(".player1").text("Player 1");
+          $("#player2roll").hide();
+          $("#player1roll").hide();
+          $("#player2hold").hide();
+          $("#player1hold").hide();
+        }
+      }
+    });
+    $("input#player1Name").val("")
+    $("input#player2Name").val("")
   });
 
 });
