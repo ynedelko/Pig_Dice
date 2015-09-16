@@ -5,3 +5,11 @@
 #player2roll {
   display: none;
 }
+
+#player1hold {
+  display: none;
+}
+
+#player2hold {
+  display: none;
+}

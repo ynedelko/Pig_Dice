@@ -49,6 +49,8 @@ $(document).ready(function() {
 
     $("#player1roll").show();
     $("#player2roll").show();
+    $("#player1hold").show();
+    $("#player2hold").show();
 
     $("#player1roll").off();
     $("#player1roll").click(function() {
@@ -82,6 +84,13 @@ $(document).ready(function() {
       }
     });
 
+    $("#player1hold").off();
+    $("#player1hold").click(function() {
+      Player1.hold();
+      $("#player1score").text(Player1.totalScore);
+      Player1.turnScore = 0;
+      $("#player1turn").text(Player1.turnScore);
+    });
   });
 
 });
