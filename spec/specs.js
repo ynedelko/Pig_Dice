@@ -19,7 +19,7 @@ describe('Player', function() {
     testPlayer.hold();
     expect(testPlayer.totalScore).to.equal(5);
   });
-  
+
 });
 
 describe('Die', function() {
@@ -28,4 +28,13 @@ describe('Die', function() {
     expect(testDie.name).to.equal("dice1");
     expect(testDie.value).to.equal(6);
   });
+
+  it('rolls a dice for a random number', function() {
+    var testDie = new Die("dice1", 1);
+    testDie.roll();
+    expect(testDie.name).to.equal('dice1');
+    debugger;
+    expect(testDie.value).to.exist;
+  });
+
 });

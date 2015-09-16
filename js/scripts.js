@@ -18,3 +18,7 @@ function Die(name, value) {
   this.name = name;
   this.value = value;
 };
+
+Die.prototype.roll = function() {
+  return this.value = Math.floor(Math.random() * (7 - 1)) + 1;
+};
