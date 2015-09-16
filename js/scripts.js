@@ -87,9 +87,30 @@ $(document).ready(function() {
     $("#player1hold").off();
     $("#player1hold").click(function() {
       Player1.hold();
+      if (Player1.totalScore >= 10) {
+        alert(Player1.name + " Has Won!")
+        if (window.confirm("Play again?")) {
+          Player1.turnScore = 0;
+          Player1.totalScore = 0;
+          $("#player1score").text(Player1.totalScore);
+          $("#player1turn").text(Player1.turnScore);
+          Player2.turnScore = 0;
+          Player2.totalScore = 0;
+          $("#player2score").text(Player2.totalScore);
+          $("#player2turn").text(Player2.turnScore);
+          // debugger;
+        }
+
+      } else {
       $("#player1score").text(Player1.totalScore);
       Player1.turnScore = 0;
       $("#player1turn").text(Player1.turnScore);
+      delete Player1;
+      delete Player2;
+      // $(".player1").text("Player 1");
+      // $(".player2").text("Player 2");
+    }
+
     });
   });
 
