@@ -98,19 +98,19 @@ $(document).ready(function() {
           Player2.totalScore = 0;
           $("#player2score").text(Player2.totalScore);
           $("#player2turn").text(Player2.turnScore);
-          // debugger;
+
+        } else {
+          Player1.turnScore = 0;
+          Player1.totalScore = 0;
+          $("#player1score").text(Player1.totalScore);
+          $("#player1turn").text(Player1.turnScore);
+
+          // delete Player1;
+          // delete Player2;
+          $(".player1").text("Player 1");
+          $(".player2").text("Player 2");
         }
-
-      } else {
-      $("#player1score").text(Player1.totalScore);
-      Player1.turnScore = 0;
-      $("#player1turn").text(Player1.turnScore);
-      delete Player1;
-      delete Player2;
-      // $(".player1").text("Player 1");
-      // $(".player2").text("Player 2");
-    }
-
+      }
     });
   });
 
