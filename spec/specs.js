@@ -12,6 +12,14 @@ describe('Player', function() {
     testPlayer.addScore(testDie);
     expect(testPlayer.turnScore).to.equal(4);
   });
+
+  it('allows player to hold turn and pass to second player', function() {
+    var testPlayer = new Player("Alyssa", 5, 0);
+    var testDie = new Die("dice1", 4)
+    testPlayer.hold();
+    expect(testPlayer.totalScore).to.equal(5);
+  });
+  
 });
 
 describe('Die', function() {

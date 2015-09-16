@@ -9,6 +9,11 @@ Player.prototype.addScore = function (die1) {
   return this.turnScore;
 };
 
+Player.prototype.hold = function() {
+  this.totalScore = this.turnScore + this.totalScore;
+  return this.totalScore;
+};
+
 function Die(name, value) {
   this.name = name;
   this.value = value;
