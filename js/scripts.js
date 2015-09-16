@@ -30,7 +30,18 @@ function Computer(name, turnScore, totalScore) {
 };
 
 $(document).ready(function() {
+  $("form#player").submit(function(event) {
+    event.preventDefault();
 
+    var player1Name = $("input#player1Name").val();
+    var player2Name = $("input#player2Name").val();
+    var newPlayer1 = new Player(player1Name, 0, 0);
+    var newPlayer2 = new Player(player2Name, 0, 0);
+
+    $(".player1").text(newPlayer1.name);
+    $(".player2").text(newPlayer2.name);
+    
+  });
 
 
 });
