@@ -11,6 +11,7 @@ function Player(name) {
   this.name = name;
   this.turnScore = 0;
   this.totalScore = 0;
+  this.turn = false;
 }
 
 Player.prototype.roll = function() {
@@ -18,12 +19,14 @@ Player.prototype.roll = function() {
     this.turnScore += Die.value();
   } else {
     this.turnScore = 0;
+    this.turn =false;
   }
 };
 
 Player.prototype.hold = function() {
   this.totalScore += this.turnScore;
   this.turnScore = 0;
+  this.turn = false;
 };
 
 //Get friends! Don't play a computer--go outside!!!
