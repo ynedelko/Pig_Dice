@@ -1,34 +1,37 @@
-function Player(name, turnScore, totalScore) {
-  this.name = name;
-  this.turnScore = turnScore || 0;
-  this.totalScore = totalScore || 0;
+function Die() {
+  this.dieValue = 0;
 }
 
-Player.prototype.addScore = function (die1) {
-  this.turnScore = die1 + this.turnScore;
-  return this.turnScore;
+Die.prototype.value = function() {
+  this.dieValue = Math.floor(Math.random() * (6)) + 1;
+  return dieValue;
+};
+
+function Player(name) {
+  this.name = name;
+  this.turnScore = 0;
+  this.totalScore = 0;
+}
+
+Player.prototype.roll = function() {
+  if (Die.value !== 1) {
+    this.turnScore += Die.value();
+  } else {
+    this.turnScore = 0;
+  }
 };
 
 Player.prototype.hold = function() {
-  this.totalScore = this.turnScore + this.totalScore;
-  return this.totalScore;
+  this.totalScore += this.turnScore;
+  this.turnScore = 0;
 };
 
-function Die(name, value) {
-  this.name = name;
-  this.value = value;
-}
-
-Die.prototype.roll = function() {
-  this.value = Math.floor(Math.random() * (7 - 1)) + 1;
-  return this.value;
-};
-
-function Computer(name, turnScore, totalScore) {
-  this.name = name;
-  this.turnScore = turnScore;
-  this.totalScore = totalScore;
-}
+//Get friends! Don't play a computer--go outside!!!
+// function Computer(name, turnScore, totalScore) {
+//   this.name = name;
+//   this.turnScore = turnScore;
+//   this.totalScore = totalScore;
+// }
 
 $(document).ready(function() {
   $("form#player").submit(function(event) {
@@ -41,7 +44,8 @@ $(document).ready(function() {
 
     var dice = [];
     var diceValue = [];
-    var diceTotal = 0;
+    // var sumOfDice = 0;
+
 
     $(".player1").text(Player1.name);
     $(".player2").text(Player2.name);
@@ -57,20 +61,21 @@ $(document).ready(function() {
     $("#player1hold").show();
     $("#player2hold").show();
 
-    $("#diceButton").click(function(event){
-      event.preventDefault();
-      var diceTotal = parseInt($("#numberOfDice").val());
-      for (i = 0; i < diceTotal; i++) {
-        dice.push(new Die(("die" + i), 1));
-      }
-    });
+    // $("#diceButton").click(function(event){
+    //   event.preventDefault();
+    //   var totalNumberofDice = parseInt($("#numberOfDice").val());
+    //   for (i = 0; i < totalNumberofDice; i++) {
+    //     dice.push(new Die(("die" + i), 1));
+    //   }
+    // });
 
-    $("#player1roll").off();
+    // $("#player1roll").off();
     $("#player1roll").click(function() {
       dice.forEach(function(die) {
         die.roll();
         diceValue.push(die.value);
       });
+
 
       if (diceValue.indexOf(1) != -1 ) {
         alert("Sucks to be you. Turn over. You get nothing. Player 2's turn.");
@@ -79,22 +84,21 @@ $(document).ready(function() {
         diceValue = [];
       } else {
         diceValue.forEach(function(val) {
-          diceTotal += val
+          sumOfDice += val
         });
 
-        Player1.addScore(diceTotal);
+        Player1.addScore(sumOfDice);
         $("#player1turn").text(Player1.turnScore);
         alert("Roll again.");
       }
     });
 
-    $("#player2roll").off();
+    // $("#player2roll").off();
     $("#player2roll").click(function() {
       dice.forEach(function(die) {
         die.roll();
         diceValue.push(die.value);
       });
-      debugger;
 
       if (diceValue.indexOf(1) != -1 ) {
         alert("Sucks to be you. Turn over. You get nothing. Player 1's turn.");
@@ -103,24 +107,24 @@ $(document).ready(function() {
         diceValue = [];
       } else {
         diceValue.forEach(function(val) {
-          diceTotal += val
+          sumOfDice += val
         });
-        debugger;
-        Player2.addScore(diceTotal);
+
+        Player2.addScore(sumOfDice);
         $("#player2turn").text(Player2.turnScore);
         alert("Roll again.");
       }
     });
-  });
+//toook the ending off here
 
 
 
 
 
-  $("#player1hold").off();
+  // $("#player1hold").off();
   $("#player1hold").click(function() {
     Player1.hold();
-    if (Player1.totalScore >= 10) {
+    if (Player1.totalScore >= 100) {
       alert(Player1.name + " Has Won!")
       if (window.confirm("Play again?")) {
         Player1.turnScore = 0;
@@ -133,8 +137,9 @@ $(document).ready(function() {
         $("#player2turn").text(Player2.turnScore);
 
       } else {
-        Player1.turnScore = 0;
-        Player1.totalScore = 0;
+        //it keeps going back to 0 after hold. we need to save our scores b/f the hold.
+        // Player1.turnScore = 0;
+        // Player1.totalScore = 0;
         $("#player1score").text(Player1.totalScore);
         $("#player1turn").text(Player1.turnScore);
         $(".player1").text("Player 1");
@@ -147,7 +152,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#player2hold").off();
+  // $("#player2hold").off();
   $("#player2hold").click(function() {
     Player2.hold();
     if (Player2.totalScore >= 100) {
@@ -163,8 +168,8 @@ $(document).ready(function() {
         $("#player1turn").text(Player1.turnScore);
 
       } else {
-        Player2.turnScore = 0;
-        Player2.totalScore = 0;
+        // Player2.turnScore = 0;
+        // Player2.totalScore = 0;
         $("#player2score").text(Player2.totalScore);
         $("#player2turn").text(Player2.turnScore);
         $(".player2").text("Player 2");
@@ -178,4 +183,5 @@ $(document).ready(function() {
   });
   $("input#player1Name").val("")
   $("input#player2Name").val("")
+});
 });

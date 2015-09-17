@@ -7,8 +7,8 @@ describe('Player', function() {
   });
 
   it('add the die value to the turn score', function() {
-    var testPlayer = new Player("Alyssa", 0, 0);
-    var testDie = new Die("dice1", 4);
+    var testPlayer = new Player("Alyssa");
+    var testDie = new Die.value(4);
     testPlayer.addScore(testDie);
     expect(testPlayer.turnScore).to.equal(4);
   });
