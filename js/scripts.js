@@ -37,18 +37,18 @@ Player.prototype.hold = function() {
 // }
 
 $(document).ready(function() {
-  $("form#player").submit(function(event) {
-    event.preventDefault();
+
+    // event.preventDefault();
 
     var player1Name = $("input#player1Name").val();
     var player2Name = $("input#player2Name").val();
     var Player1 = new Player(player1Name);
     var Player2 = new Player(player2Name);
 
-    var dice = [];
-    var diceValue = [];
+    // var dice = [];
+    // var diceValue = [];
     // var sumOfDice = 0;
-
+$("form#player1").submit(function(event) {
 
     $(".player1").text(Player1.name);
     $(".player2").text(Player2.name);

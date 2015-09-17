@@ -9,50 +9,77 @@
 </head>
 <body>
   <div class = 'container'>
-    <h1>Play Pig Dice</h1>
+    <h1>Play Pig Dice, A Game of Probability</h1>
     <div class= 'row'>
-      <form id='player'>
-        <div class= 'col-md-6'>
-          <h2 class="player1">Player 1</h2>
+      <h2><strong>Player One</strong></h2>
+      <h6>Total Score: <span class="player1score"></span></h6>
+      <h6>Turn Score: <span class="player1turn"></span></h6>
+        <form id='player1'>
+          <br>
+          <button type="submit" id="player1roll" class="btn btn-success">Player 1: Roll Die</button>
+          <button type="submit" id="player1hold" class="btn btn-danger">Player 1: Hold Turn</button>
+          <br>
+        </form>
+        <h2><strong>Player Two</strong></h2>
+        <h6>Total Score: <span class="player2score"></span></h6>
+        <h6>Turn Score: <span class="player2turn"></span></h6>
+        <form id='player2'>
+          <br>
+          <button type="submit" id="player2roll" class="btn btn-success">Player 1: Roll Die</button>
+          <button type="submit" id="player3hold" class="btn btn-danger">Player 1: Hold Turn</button>
+          <br>
+        </form>
+    </div>
+  </div>
+<body>
+</html>
+
+
+<!--
+          <h4 class="player1">Player 1</h4>
           <div class='form-group'>
             <input id='player1Name' class="form-control" placeholder="Player Name">
           </div>
           <div>
-            <h2>Total Score:</h2>
-            <h3 id="player1score"></h3>
+            <h6>Total Score:</h6>
+            <h6 id="player1score"></h6>
           </div>
           <div>
-            <h2>Turn Score:</h2>
-            <h3 id="player1turn"></h3>
+            <h6>Turn Score:</h6>
+            <h6 id="player1turn"></h6>
           </div>
+          <button type="submit" class="btn btn-info">Add Player</button>
+        </form>
+        <br>
+        <button id="player1roll" class="btn btn-success">Player 1: Roll Die</button>
+        <button id="player1hold" class="btn btn-danger">Player 1: Hold Turn</button>
+        <br>
+        <form id='player2'>
 
-
-
-        </div>
-        <div class='col-md-6'>
-          <h2 class="player2">Player 2</h2>
+          <h4 class="player2">Player 2</h4>
           <div class='form-group'>
             <input id='player2Name' class="form-control" placeholder="Player 2 Name">
           </div>
           <div>
-            <h2>Total Score:</h2>
-            <h3 id="player2score"></h3>
+            <h6>Total Score:</h6>
+            <h6 id="player2score"></h6>
           </div>
           <div>
-            <h2>Turn Score:</h2>
-            <h3 id="player2turn"></h3>
+            <h6>Turn Score:</h6>
+            <h6 id="player2turn"></h6>
           </div>
+          <button type="submit" class="btn btn-info">Add Player</button>
+          <br>
+          <button id="player2roll" class="btn btn-success">Player 2: Roll Die</button>
+          <button id="player2hold" class="btn btn-danger">Player 2: Hold Turn</button>
+          <br>
+      </div>
+        </form>
 
-
-        </div>
-        <button type="submit" class="btn btn-info">Add Players</button>
-      </form>
-      <button id="player1roll" class="btn btn-success">Roll Die</button>
-      <button id="player2roll" class="btn btn-success">Roll Die</button>
-      <button id="player1hold" class="btn btn-danger">Hold Turn</button>
-      <button id="player2hold" class="btn btn-danger">Hold Turn</button>
-      <br>
-      <br>
+          <br>
+          <button id="player1roll" class="btn btn-success">Player 1: Roll Die</button>
+          <button id="player1hold" class="btn btn-danger">Player 1: Hold Turn</button>
+          <br>
       <!-- <div id="dice">
         <form id="diceNumber">
           <label for="dice"># of dice you want to play with: </label>
@@ -60,7 +87,7 @@
           <button id="diceButton">GO</button>
         </form>
       </div> -->
-    </div>
+    <!-- </div>
   </div>
 </body>
-</html>
+</html> -->
